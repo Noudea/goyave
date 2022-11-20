@@ -20,5 +20,8 @@
     "build": "tsc",
     "start": "yarn build && build/index.js",
     "test": "jest --watchAll --collectCoverage"
+  },
+  "dependencies": {
+    "fastify": "^4.10.0"
   }
 }
