@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+
+  postgres:
+    container_name: postgres_goyave
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: goyave
+    ports:
+      - "5432:5432"
+    networks:
+      - goyave_network
+
+  adminer:
+    container_name: adminer_goyave
+    image: adminer
+    restart: always
+    ports:
+      - "5433:8080"
+    networks:
+      - goyave_network
+
+networks:
+  goyave_network:
